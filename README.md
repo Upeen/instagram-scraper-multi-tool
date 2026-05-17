@@ -1,43 +1,148 @@
 # Instagram Scraper - Multi-Tool Implementation
 
-Comprehensive Instagram scraper supporting 5 open-source tools.
+A comprehensive Instagram scraper with **5 scraping tools**, **Streamlit web UI**, and **25+ test cases**.
 
-## Tools
+## ✨ Features
 
+### 🎯 5 Scraping Tools
 1. **ig-scraper-v2** (Recommended) - Selenium + BeautifulSoup
-2. **Slug-Ig-Crawler** - Structured JSON
-3. **Zeeschuimer** - Browser extension
-4. **Instagram OSINT Tool** - Advanced analysis
-5. **IG-FB-Scraper** - HTML reports
+2. **Slug-Ig-Crawler** - Structured JSON output
+3. **Zeeschuimer** - Firefox browser extension
+4. **Instagram OSINT Tool** - Advanced analysis & proxies
+5. **IG-FB-Scraper** - Visual HTML reports
 
-## Quick Start
+### 🖥️ Web Interface
+- **Streamlit UI** for easy scraping
+- **Real-time progress** tracking
+- **Tool comparison** dashboard
+- **Results viewer** with export
+- **Built-in documentation**
+
+### 🧪 Testing
+- **25+ test cases** covering all functionality
+- **Unit tests** for each scraper
+- **Integration tests** for workflows
+- **Configuration tests**
+- **Pytest fixtures** utilities
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+```
+
+### Using Streamlit Web UI
+
+```bash
+streamlit run app.py
+```
+
+Open http://localhost:8501
+
+### Using CLI
+
+```bash
 python main.py --account rajshamiofficial --format json
 ```
 
-## Usage
+### Running Tests
 
 ```bash
-# Basic scraping
-python main.py --account username --format json
-
-# Generate HTML report
-python main.py --scraper fb --account username --format html
-
-# Multiple accounts
-python main.py --accounts account1 account2 --format json
-
-# All tools
-python main.py --scraper all --account username
+pytest tests/                              # Run all tests
+pytest --cov=instagram_scraper tests/      # With coverage
+pytest -v tests/                           # Verbose output
 ```
 
-## Output
+## 📊 Test Results
 
-Scraped data saved to `output/scraped_data/`
+✅ **25+ test cases**
+- TestIgScraperV2 (5 tests)
+- TestSlugCrawler (3 tests)
+- TestZeeschuimer (2 tests)
+- TestOSINTScraper (2 tests)
+- TestIGFBScraper (2 tests)
+- TestAllScrapers (4 tests)
+- TestIntegration (4 tests)
+- TestConfiguration (5 tests)
 
-## Configuration
+All tests passing ✓
+
+## 📁 Project Structure
+
+```
+instagram_scraper/
+├── config.py
+├── scrapers/
+│   ├── base_scraper.py
+│   ├── ig_scraper_v2.py
+│   ├── slug_crawler.py
+│   ├── zeeschuimer_scraper.py
+│   ├── osint_scraper.py
+│   └── fb_scraper.py
+
+tests/
+├── conftest.py          # Fixtures
+├── test_scrapers.py     # Unit tests
+├── test_integration.py  # Integration tests
+└── test_config.py       # Config tests
+
+app.py                   # Streamlit UI
+main.py                  # CLI
+```
+
+## 🖥️ Streamlit Web UI
+
+**Features:**
+- ✅ Tool selection (ig-scraper-v2, Slug, Zeeschuimer, OSINT, IG-FB)
+- ✅ Account input and configuration
+- ✅ Multi-format export (JSON, HTML)
+- ✅ Real-time progress tracking
+- ✅ Results viewer and downloader
+- ✅ Tool comparison table
+- ✅ Built-in documentation
+
+**Usage:**
+```bash
+streamlit run app.py
+```
+
+## 🧪 Test Coverage
+
+### Unit Tests
+```
+✅ Scraper initialization
+✅ Scrape method functionality
+✅ JSON export
+✅ HTML report generation
+✅ Scraper identification
+```
+
+### Integration Tests
+```
+✅ Multiple scrapers on same account
+✅ Multiple accounts scraping
+✅ Export format validation
+✅ Complete workflows
+```
+
+### Configuration Tests
+```
+✅ Project directories exist
+✅ Target accounts configured
+✅ Configuration values valid
+```
+
+## 📊 Export Formats
+
+- **JSON** - Structured data export
+- **HTML** - Visual reports with styling
+- **CSV** - Spreadsheet compatible (ready)
+
+## 🔧 Configuration
 
 Edit `instagram_scraper/config.py`:
 
@@ -47,10 +152,75 @@ REQUEST_DELAY = 2
 PAGE_LOAD_TIMEOUT = 30
 ```
 
-## ⚠️ Legal Notice
+## 📚 Documentation
 
-Scraping may violate Instagram's Terms of Service. Use responsibly and check local laws.
+- [SETUP_GUIDE.md](SETUP_GUIDE.md) - Detailed setup
+- [TESTING.md](TESTING.md) - Test running guide
+- [app.py](app.py) - UI source code
+- [main.py](main.py) - CLI source code
+
+## 🔒 Legal & Ethical
+
+⚠️ **Important:**
+- Scraping may violate Instagram ToS
+- Check local laws
+- Use responsibly
+- Respect rate limits
+- Handle data ethically
+
+## 🎯 Usage Examples
+
+### Web UI
+```bash
+streamlit run app.py
+# Select tool → Enter account → Export → View results
+```
+
+### CLI - Single Tool
+```bash
+python main.py --account rajshamiofficial --format json
+```
+
+### CLI - All Tools
+```bash
+python main.py --scraper all --account rajshamiofficial --format json
+```
+
+### Tests
+```bash
+pytest tests/test_scrapers.py -v           # Unit tests
+pytest tests/test_integration.py -v        # Integration
+pytest --cov=instagram_scraper tests/      # Coverage
+```
+
+## 🚀 Deployment
+
+### Local
+```bash
+streamlit run app.py --server.port 8501
+```
+
+### Production
+```bash
+streamlit run app.py --logger.level=info
+```
+
+## 📝 Notes
+
+- ✅ All 5 scrapers implemented
+- ✅ Comprehensive test suite
+- ✅ Streamlit web interface
+- ✅ CLI tool included
+- ✅ Full documentation
+- ✅ Export capabilities
+
+## 📄 License
+
+Educational and research purposes only.
 
 ---
 
-For detailed setup, see SETUP_GUIDE.md
+**Status:** ✅ Active & Tested  
+**Tests:** 25+ passing  
+**UI:** Streamlit web interface  
+**Last Updated:** 2026-05-17
